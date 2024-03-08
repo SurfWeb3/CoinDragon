@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import Chart from 'react-apexcharts'
+import dynamic from "next/dynamic"
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const Values = ({ tokens }) => {
   const defaultDates = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun']
@@ -104,6 +105,7 @@ iterating once for each day/period on graph [3499, 3425, etc] */
           ]}
           type="line"
           height="300"
+          width="100%"
         />
 
       </div>
